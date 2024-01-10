@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+app = "streamlit run src/app.py"
+
+[packages]
+requests = "*"
+streamlit = "*"
+numpy = "*"
+pandas = "*"
+altair = "*"
+scipy = "*"
+matplotlib = "*"
+kiwisolver = "*"
+
+[dev-packages]
+black = "==21.8b0"
+isort = "*"
+mypy = "==0.910"
+pyproject-flake8 = "==0.0.1a2"
+
+[requires]
+python_version = "3.11"

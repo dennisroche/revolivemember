@@ -1,0 +1,63 @@
+repos:
+  # commit messages
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.28.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  # house keeping
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-shebang-scripts-are-executable
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-symlinks
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: pretty-format-json
+        args: ['--autofix', '--indent', '2', '--no-sort-keys']
+      - id: trailing-whitespace
+        args: ['--markdown-linebreak-ext=md']
+      - id: fix-encoding-pragma
+        args: ['--remove']
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # python
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        stages: [commit]
+        language: system
+        entry: pipenv run isort
+        types: [python]
+
+      - id: black
+        name: black
+        stages: [commit]
+        language: system
+        entry: pipenv run black
+        types: [python]
+
+      - id: flake8
+        name: flake8
+        stages: [commit]
+        language: system
+        entry: pipenv run pflake8
+        types: [python]
+
+      - id: mypy
+        name: mypy
+        stages: [commit]
+        language: system
+        entry: pipenv run mypy
+        types: [python]
+        require_serial: true
+        exclude: ^.hooks
+

@@ -1,0 +1,72 @@
+##
+## Root .gitignore. Focus on operating systems and global rules
+## See .gitignore files within each project for close scope
+##
+## Based on https://www.gitignore.io/api/windows,osx
+##
+
+!.venv/.gitkeep
+
+# Temporary Files
+tmp*/
+*.orig
+*.log
+temp.*
+*.rej
+
+# Environment
+.env
+
+# Python
+.pytest_cache
+.mypy_cache
+
+### Windows ###
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts expect for root
+src/**/*.lnk
+
+### OSX ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon[\r]
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
